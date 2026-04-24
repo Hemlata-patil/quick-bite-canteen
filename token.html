@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Order Token – Quick Bite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="cart-body">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <h1>Quick Bite</h1>
+    </div>
+    <div class="header-right">
+      <span>Order Confirmed</span>
+    </div>
+  </header>
+
+  <!-- Token Section -->
+  <main class="token-container">
+    <div class="token-card">
+      <h1>🎉 Order Placed Successfully!</h1>
+      <p class="token-label">Your token number is:</p>
+
+      <div id="display-token-page" class="token-number">--</div>
+
+      <p id="token-message" class="token-message">
+        Waiting for restaurant confirmation... ⌛
+      </p>
+
+      <div class="order-status">
+        <span id="step-placed" class="step">Order Placed</span>
+        <span>➡️</span>
+        <span id="step-preparing" class="step">Preparing</span>
+        <span>➡️</span>
+        <span id="step-ready" class="step">Ready</span>
+      </div>
+
+      <button onclick="goHome()" style="background:#FF5722; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">
+                 🍽️ Back to Menu
+      </button>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

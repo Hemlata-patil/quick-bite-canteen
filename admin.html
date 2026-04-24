@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin – Quick Bite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="admin-body">
+  <header class="header" style="display: flex; align-items: center; justify-content: space-between; background: #ff5722; padding: 10px 20px;">
+
+    <div class="header-left">
+      <button id="logout-btn-admin">Logout</button>
+    </div>
+
+    <div class="header-center" style="flex-grow: 1; text-align: center;">
+      <h1 style="color: white; margin: 0; font-size: 24px;">Quick Bite – Admin</h1>
+    </div>
+
+    <div class="header-right" style="display: flex; flex-direction: column; align-items: flex-end; color: white;">
+      <span id="user-id-display" style="font-size: 12px; font-weight: normal; opacity: 0.9;"></span>
+      <span id="user-display-name" style="font-weight: bold; font-size: 16px;">Loading...</span>
+    </div>
+
+  </header>
+<main class="admin-main">
+    <div class="tabs">
+      <button class="tab active" data-tab="menu" id="admin-menu-tab">Menu</button>
+      <button class="tab" data-tab="orders" id="admin-orders-tab">Orders</button>
+    </div>
+
+    <div id="menu-panel" class="tab-panel">
+      <h2>Manage Menu</h2>
+
+      <form id="add-item-form">
+        <div class="input-row">
+          <label>Name</label>
+          <input type="text" id="item-name" required />
+        </div>
+        <div class="input-row">
+          <label>Price (₹)</label>
+          <input type="number" id="item-price" min="1" required />
+        </div>
+        <div class="input-row">
+          <label>Prep Time (min)</label>
+          <input type="number" id="item-preptime" min="1" required />
+        </div>
+
+        <div class="input-row">
+          <label>Image URL</label>
+          <input type="text" id="item-image-url" placeholder="Paste link from Google Images" />
+        </div>
+
+        <div class="input-row">
+          <label>Category</label>
+          <select id="item-category" required>
+            <option value="">-- Select --</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Meals">Meals</option>
+            <option value="Drinks">Drinks</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary">Add Item</button>
+      </form>
+
+      <div id="admin-menu-list"></div>
+    </div>
+
+    <div id="orders-panel" class="tab-panel" style="display: none;">
+      <h2>Order Tracking</h2>
+      <div id="admin-orders-list">
+        <p>No orders yet...</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

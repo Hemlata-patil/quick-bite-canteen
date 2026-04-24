@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Bite – Smart Canteen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="login-body">
+  <header class="login-header">
+    <h1>Quick Bite</h1>
+  </header>
+
+  <main class="login-main">
+    <div class="login-card">
+      <h2>Quick Bite – Canteen System</h2>
+
+      <form id="login-form" novalidate>
+        <div class="input-group">
+          <label for="login-username">Username</label>
+          <input type="text" id="login-username" required />
+        </div>
+
+        <div class="input-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" required />
+        </div>
+
+        <div class="input-group">
+          <label for="login-role">Role</label>
+          <select id="login-role" required>
+            <option value="">-- Select role --</option>
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <button type="submit">Log In</button>
+
+        <p class="error" id="login-error"></p>
+
+        <p class="text-center">
+          Don’t have an account? <a href="signup.html">Sign up</a>
+        </p>
+      </form>
+    </div>
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

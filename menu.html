@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu – Quick Bite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<div id="display-token" style="text-align: center; margin: 20px 0; font-family: sans-serif;"></div>
+
+<body class="menu-body">
+  <header class="header" style="display: flex; align-items: center; justify-content: space-between; background: #ff5722; padding: 10px 20px;">
+  <div class="header-left" style="display: flex; gap: 10px;">
+    <button id="track-order-btn" onclick="window.location.href='token.html'">
+      🚚 Track My Order
+    </button>
+    <button id="logout-btn">Logout</button>
+  </div>
+
+  <div class="header-center" style="flex-grow: 1; text-align: center;">
+    <h1 style="color: white; margin: 0;">Quick Bite</h1>
+  </div>
+
+  <div class="header-right" style="display: flex; flex-direction: column; align-items: flex-end; color: white;">
+    <span id="user-id-display" style="font-size: 12px; font-weight: normal; opacity: 0.9;"></span>
+    <span id="user-display-name" style="font-weight: bold; font-size: 16px;">User</span>
+  </div>
+</header>
+  <main class="menu-main">
+    <section class="search-section">
+      <h2>Find your food</h2>
+      <input type="text" id="menu-search" placeholder="Search items..." />
+      <button id="view-cart-btn" class="cart-btn">View My Cart (0)</button>
+    </section>
+
+    <div class="category-buttons">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="snacks">Snacks</button>
+      <button class="filter-btn" data-category="meals">Meals</button>
+      <button class="filter-btn" data-category="drinks">Drinks</button>
+    </div>
+    <!-- MAIN MENU ITEMS -->
+    <div id="menu-grid" class="menu-items"></div>
+  </main>
+
+
+ <div id="checkout-modal" class="modal" style="display:none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 12px; font-family: sans-serif;">
+        <h2 style="color: #ff5722; text-align: center;">Your Order</h2>
+        
+        <div id="cart-summary" style="margin: 15px 0; max-height: 150px; overflow-y: auto; border-bottom: 1px solid #eee;">
+            </div>
+        
+        <p style="font-size: 1.2rem; text-align: center;"><strong>Total: ₹<span id="cart-total">0</span></strong></p>
+
+        <div style="margin: 20px 0; padding: 10px; background: #fff5f2; border-radius: 8px;">
+            <label style="font-weight: bold; display: block; margin-bottom: 8px;">Select Payment Method:</label>
+            <select id="payment-method" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ff5722;" onchange="toggleQR()">
+                <option value="cash">Pay Cash at Counter</option>
+                <option value="online">Pay Online (UPI QR)</option>
+            </select>
+        </div>
+
+        <div id="qr-container" style="display: none; text-align: center; margin-bottom: 15px;">
+            <p style="font-size: 14px; color: #666;">Scan to pay via UPI</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CanteenPayment" alt="UPI QR" style="width: 130px; margin: 10px 0;">
+        </div>
+        
+        <button id="place-order-btn" style="background: #4CAF50; color: white; width: 100%; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;">Confirm Payment</button>
+        
+        <button onclick="document.getElementById('checkout-modal').style.display='none'" style="width: 100%; background: none; border: none; color: #888; margin-top: 10px; cursor: pointer;">Cancel</button>
+    </div>
+</div>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

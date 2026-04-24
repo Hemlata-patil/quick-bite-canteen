@@ -1,0 +1,598 @@
+/* style.css – Quick Bite – Smart Canteen */
+
+:root {
+  --primary: #ff5722;
+  /* Standardized to your Quick Bite Orange */
+  --primary-dark: #e64a19;
+  --secondary: #ffbe0b;
+  --danger: #d90429;
+  --success: #2a9d8f;
+  --bg: #f8f9fa;
+  --text: #212529;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --border-radius: 8px;
+  --trans: 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ==================== Header & Navigation ==================== */
+
+.login-header,
+.header {
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-center {
+  flex-grow: 1;
+  font-size: 40px;
+  margin-right:130px;
+}
+
+.header-center h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 100px;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+}
+
+/* Logout Button (Ghost Style) */
+#logout-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 41.09px;
+  margin-top:9px ;
+}
+
+#logout-btn:hover {
+  background: white;
+  color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== Login / Signup Layout ==================== */
+
+.login-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  min-height: 100vh;
+}
+
+.login-card {
+  background: white;
+  padding: 1.75rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-card h2 {
+  margin-bottom: 1.25rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--trans);
+}
+
+.login-card button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* ==================== Menu & Food Cards ==================== */
+
+.menu-main {
+  padding: 1.5rem;
+}
+
+/* Search Bar Optimized */
+#menu-search {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+#menu-search:focus {
+  border-color: var(--primary);
+  box-shadow: 0 4px 10px rgba(255, 87, 34, 0.2);
+}
+
+/* Category Filter Buttons */
+.category-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  background-color: #f1f3f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+  transition: 0.3s;
+}
+
+.filter-btn.active {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary-dark) !important;
+}
+
+/* Menu Grid */
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.food-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+}
+
+.food-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.food-card-info {
+  padding: 15px;
+}
+
+.food-price {
+  font-weight: bold;
+  color: #e67e22;
+  font-size: 1.1rem;
+  margin: 8px 0;
+}
+
+.add-btn {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+
+/* ==================== Token & Status ==================== */
+
+.token-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 450px;
+  margin: 50px auto;
+}
+
+.token-number {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 12px auto;
+  padding: 10px 40px;
+  width: fit-content;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  border: 2px dashed var(--primary);
+  animation: popIn 0.5s ease;
+}
+
+.order-status {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.step {
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  color: #757575;
+  transition: all 0.3s ease;
+}
+
+.step.current {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+}
+
+.step.done {
+  background-color: #2e7d32;
+  color: white;
+}
+
+/* ==================== Fixed Floating Cart ==================== */
+
+#view-cart-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+#view-cart-btn:hover {
+  transform: scale(1.05);
+}
+
+#view-cart-btn.cart-updated {
+  animation: glow 0.5s ease-in-out;
+}
+
+/* ==================== Animations & Responsive ==================== */
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px var(--primary);
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--primary);
+  }
+
+  100% {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-items {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    padding: 10px;
+  }
+
+  #menu-search {
+    width: 90%;
+  }
+}
+/* ==================== Admin Panel Styles ==================== */
+
+.admin-main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.tab {
+    padding: 10px 25px;
+    border: none;
+    background: #f1f3f5;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: var(--trans);
+}
+
+.tab.active {
+    background: var(--primary);
+    color: white;
+}
+
+.tab-panel h2 {
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+#add-item-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    background: #fff9f7;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-row label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-row input, .input-row select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.admin-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-item-row:hover {
+    background: #fafafa;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    grid-column: 1 / -1; /* Makes button full width in the form grid */
+}
+
+#logout-btn,
+#logout-btn-admin {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+#logout-btn:hover,
+#logout-btn-admin:hover {
+  background: white;
+  color: #ff5722;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Click Effect */
+#logout-btn:active,
+#logout-btn-admin:active {
+  transform: scale(0.95);
+}
+/* Base style for the admin toggle button */
+.status-toggle-btn {
+    padding: 8px 16px;
+    border: 2px solid;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    min-width: 110px;
+    transition: 0.3s;
+   
+  }
+
+/* Red style for "sold-out" class */
+.status-toggle-btn.sold-out {
+    background-color: #ffebee;
+    color: #c62828;
+    border-color: #c62828;
+    margin-left: 80%;
+    margin-bottom: 10px;
+}
+
+/* Green style for "available" class */
+.status-toggle-btn.available {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-color: #2e7d32;
+    margin-left: 80%;
+    margin-bottom: 10px;
+}
+/* ==================== Admin Order Tracking Styles ==================== */
+
+#admin-orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+
+.order-card {
+    background: #ffffff;
+    border-left: 5px solid #ff5722; /* Quick Bite Orange accent */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.order-card:hover {
+    transform: translateY(-2px);
+}
+
+.order-card strong {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.order-card p {
+    margin: 10px 0;
+    color: #666;
+    font-style: italic;
+}
+
+/* Status Buttons Styling */
+.order-card button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* "Preparing" Button - Yellow/Orange */
+.order-card button:nth-of-type(1) {
+    background-color: #fff3e0;
+    color: #ef6c00;
+    border: 1px solid #ef6c00;
+}
+
+.order-card button:nth-of-type(1):hover {
+    background-color: #ef6c00;
+    color: white;
+}
+
+/* "Ready" Button - Green */
+.order-card button:nth-of-type(2) {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}
+
+.order-card button:nth-of-type(2):hover {
+    background-color: #2e7d32;
+    color: white;
+}
+.header-left{
+  display: flex;
+}
+#track-order-btn{
+  background-color: #ff5722; 
+  color: white;
+   border-color: white; 
+   padding: 10px 20px; border-radius: 20px; 
+    height: 41.09px;
+   font-weight: bold;  margin: 10px;
+  
+}
+#track-order-btn:hover{
+  background: white;
+  color:  #ff5722;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 41.09px;
+  margin-top:10px ;
+}
