@@ -73,7 +73,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   height: 41.09px;
-  margin-top:9px ;
+  margin-top:7px ;
 }
 
 #logout-btn:hover {
