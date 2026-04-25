@@ -452,9 +452,13 @@ function startQueueListener() {
 // ==========================================
 // 7. INITIALIZATION
 // ==========================================
-// Update  Initialization section at the very bottom
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('menu-grid')) loadMenu();
-    if (document.getElementById('admin-menu-list')) loadAdminMenuList();
-    startQueueListener(); // Add this line here
-});
+    if (document.getElementById('menu-grid')) {
+        loadMenu();
+        startQueueListener(); // This must be INSIDE the brackets
+    }
+    
+    if (document.getElementById('admin-menu-list')) {
+        loadAdminMenuList();
+    }
+}); 
