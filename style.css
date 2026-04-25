@@ -894,7 +894,31 @@ header {
 }
 
 /* --- Live Canteen Queue Styling --- */
-.queue-status-container {
+
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .header {
+        /* flex-direction: column;
+        height: auto;
+        gap: 10px; */
+      position:relative;
+      text-align:center;
+    }
+    .header h1{
+      text-align:centre;
+    }
+    .header-left {
+        width: 100%;
+        justify-content: center;
+    }
+  .header.email{
+    position:absolute;
+    right:10px;
+    top:10px;
+    font-size:12px;
+  }
+  .queue-status-container {
     background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
     border: 1px solid #ffcc80;
     border-radius: 12px;
@@ -926,26 +950,4 @@ header {
     margin: 0 5px;
 }
 
-/* Mobile Responsive Adjustments */
-@media screen and (max-width: 768px) {
-    .header {
-        /* flex-direction: column;
-        height: auto;
-        gap: 10px; */
-      position:relative;
-      text-align:center;
-    }
-    .header h1{
-      text-align:centre;
-    }
-    .header-left {
-        width: 100%;
-        justify-content: center;
-    }
-  .header.email{
-    position:absolute;
-    right:10px;
-    top:10px;
-    font-size:12px;
-  }
 }
