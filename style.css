@@ -878,6 +878,7 @@ header {
     gap: 12px; /* Keeps buttons level and spaced */
 }
 
+}
 #track-order-btn, #logout-btn {
     height: 40px; /* Forces identical height */
     display: flex;
@@ -950,4 +951,3 @@ header {
     margin: 0 5px;
 }
 
-}
