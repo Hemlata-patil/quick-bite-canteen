@@ -938,10 +938,10 @@ header {
     .header h1{
       text-align:centre;
     }
-    /* .header-left {
+    .header-left {
         width: 100%;
         justify-content: center;
-    } */
+    }
   .header.email{
     position:absolute;
     right:10px;
