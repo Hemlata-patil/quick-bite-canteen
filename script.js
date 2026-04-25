@@ -142,9 +142,7 @@ function loadMenu(category = "All", searchTerm = "", specialFilter = null) {
     } else if (specialFilter === "popular") {
         query = query.where("isPopular", "==", true);
     }
-    }); 
-}); 
-} 
+   
     //new added
 query.onSnapshot((snapshot) => {
     menuGrid.innerHTML = ""; // Clear the grid ONCE at the start of the update
@@ -172,6 +170,7 @@ query.onSnapshot((snapshot) => {
         }
     });
 });
+}
 // Search & Filter Listeners
 const searchInput = document.getElementById('menu-search');
 if (searchInput) {
