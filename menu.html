@@ -10,27 +10,28 @@
 <div id="display-token" style="text-align: center; margin: 20px 0; font-family: sans-serif;"></div>
 
 <body class="menu-body">
-  <header class="header" style="display: flex; align-items: center; justify-content: space-between; background: #ff5722; padding: 10px 20px;">
-  <div class="header-left" style="display: flex; gap: 10px;">
+  <header class="header" >
+  <div class="header-left">
     <button id="track-order-btn" onclick="window.location.href='token.html'">
       🚚 Track My Order
     </button>
     <button id="logout-btn">Logout</button>
   </div>
 
-  <div class="header-center" style="flex-grow: 1; text-align: center;">
-    <h1 style="color: white; margin: 0;">Quick Bite</h1>
+  <div class="header-center" >
+    <!-- <h1 style="color: white; margin: 0;">Quick Bite</h1> -->
+    <h1>Quick Bite</h1>
   </div>
 
-  <div class="header-right" style="display: flex; flex-direction: column; align-items: flex-end; color: white;">
-    <span id="user-id-display" style="font-size: 12px; font-weight: normal; opacity: 0.9;"></span>
-    <span id="user-display-name" style="font-weight: bold; font-size: 16px;">User</span>
+  <div class="header-right">
+    <span id="user-id-display"></span>
+    <span id="user-display-name">User</span>
   </div>
 </header>
   <main class="menu-main">
     <main class="menu-main">
-    <div id="queue-status-bar" style="background: #fff3e0; padding: 12px; border-radius: 8px; text-align: center; margin-bottom: 20px; border: 1px solid #ffcc80; font-family: sans-serif;">
-        <span style="font-size: 15px; color: #e65100; font-weight: bold;">
+    <div id="queue-status-bar" >
+        <span >
             🔥 Live Canteen Queue: <span id="queue-count" style="font-size: 18px;">0</span> orders currently cooking
         </span>
     </div>
