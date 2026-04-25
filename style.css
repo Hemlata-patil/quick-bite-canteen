@@ -585,6 +585,7 @@ body {
 }
 .header-left{
   display: flex;
+  
 }
 #track-order-btn{
   background-color: #ff5722; 
@@ -593,7 +594,7 @@ body {
    padding: 10px 20px; border-radius: 20px; 
     height: 41.09px;
    font-weight: bold;  margin: 10px;
-  
+  margin-top:10px;
 }
 #track-order-btn:hover{
   background: white;
