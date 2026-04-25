@@ -346,18 +346,29 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  .menu-items {
-    grid-template-columns: 1fr;
-  }
+/* Mobile Responsive Header */
+@media (max-width: 600px) {
+    header {
+        display: flex;
+        flex-direction: column; /* Stack logo and buttons */
+        align-items: center;
+        padding: 10px;
+        height: auto; /* Let it grow based on content */
+    }
 
-  .header {
-    padding: 10px;
-  }
+    .nav-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        width: 100%;
+    }
 
-  #menu-search {
-    width: 90%;
-  }
+    #track-order-btn, #logout-btn {
+        font-size: 12px;
+        padding: 8px;
+        white-space: nowrap;
+    }
 }
 /* ==================== Admin Panel Styles ==================== */
 
@@ -595,4 +606,17 @@ body {
   transition: all 0.3s ease;
   height: 41.09px;
   margin-top:10px ;
+}
+@media (max-width: 600px) {
+    .filter-container {
+        display: flex;
+        flex-wrap: wrap; /* Allows buttons to go to next line if needed */
+        justify-content: center;
+        gap: 5px;
+    }
+
+    #menu-search {
+        width: 90% !important;
+        margin-bottom: 15px;
+    }
 }
