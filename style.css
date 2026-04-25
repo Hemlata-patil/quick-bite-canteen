@@ -807,3 +807,58 @@ header {
     font-size: 13px;
   }
 }
+/* LAPTOP DEFAULTS */
+.header {
+  background-color: #ff5722;
+  color: white;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left { display: flex; gap: 10px; }
+.header-center h1 { font-size: 28px; margin: 0; }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; }
+
+/* MOBILE FIX (Screens under 600px) */
+@media screen and (max-width: 600px) {
+  .header {
+    flex-direction: column !important; /* Stack everything vertically */
+    padding: 15px 10px !important;
+    height: auto !important;
+  }
+
+  .header-left {
+    order: -1; /* Puts Track/Logout buttons at the very top */
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .header-center {
+    order: 0; /* Puts "Quick Bite" in the middle */
+    margin-bottom: 5px;
+  }
+
+  .header-right {
+    order: 1; /* Puts user name at the bottom of the header */
+    align-items: center;
+    width: 100%;
+  }
+
+  #track-order-btn, #logout-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  /* Prevent zoom on search box */
+  #menu-search {
+    font-size: 16px !important; 
+    width: 95% !important;
+  }
+}
