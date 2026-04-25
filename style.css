@@ -862,3 +862,80 @@ header {
     width: 95% !important;
   }
 }
+/* --- Header Button Alignment --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    min-height: 70px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Keeps buttons level and spaced */
+}
+
+#track-order-btn, #logout-btn {
+    height: 40px; /* Forces identical height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    border: 2px solid white;
+    border-radius: 20px;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* --- Live Canteen Queue Styling --- */
+.queue-status-container {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border: 1px solid #ffcc80;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.queue-content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e65100;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.fire-icon {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.count-highlight {
+    font-size: 22px;
+    background: #ff5722;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 6px;
+    margin: 0 5px;
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
+    
+    .header-left {
+        width: 100%;
+        justify-content: center;
+    }
+}
