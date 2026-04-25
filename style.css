@@ -927,15 +927,25 @@ header {
 }
 
 /* Mobile Responsive Adjustments */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .header {
-        flex-direction: column;
+        /* flex-direction: column;
         height: auto;
-        gap: 10px;
+        gap: 10px; */
+      position:relative;
+      text-align:center;
     }
-    
-    .header-left {
+    .header h1{
+      text-align:centre;
+    }
+    /* .header-left {
         width: 100%;
         justify-content: center;
-    }
+    } */
+  .header.email{
+    position:absolute;
+    right:10px;
+    top:10px;
+    font-size:12px;
+  }
 }
