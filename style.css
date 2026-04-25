@@ -951,3 +951,67 @@ header {
     margin: 0 5px;
 }
 
+/* --- Live Canteen Queue Styling --- */
+.queue-status-card {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border: 1px solid #ffcc80;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for a professional feel */
+.queue-status-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.queue-text {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #e65100;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.fire-icon {
+    font-size: 20px;
+    animation: flicker 1.5s infinite alternate;
+}
+
+/* Eye-catching badge for the order count */
+.count-badge {
+    font-size: 20px;
+    background: #ff5722;
+    color: white;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-weight: 800;
+    box-shadow: 0 2px 5px rgba(255, 87, 34, 0.3);
+}
+
+/* Subtle flame animation */
+@keyframes flicker {
+    from { opacity: 0.8; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1.1); }
+}
+
+/* Mobile Responsive adjustment */
+@media screen and (max-width: 600px) {
+    .queue-status-card {
+        width: 95%;
+        padding: 12px;
+        margin: 15px auto;
+    }
+    .queue-text {
+        font-size: 14px;
+    }
+}
+
