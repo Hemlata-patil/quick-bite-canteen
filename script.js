@@ -142,34 +142,33 @@ function loadMenu(category = "All", searchTerm = "", specialFilter = null) {
     } else if (specialFilter === "popular") {
         query = query.where("isPopular", "==", true);
     }
+    //new added
+query.onSnapshot((snapshot) => {
+    menuGrid.innerHTML = ""; // Clear the grid ONCE at the start of the update
+    
+    snapshot.forEach((doc) => {
+        const item = doc.data();
+        const itemName = item.name.toLowerCase();
+        const isSoldOut = item.status === "Sold Out";
 
-    // Using .get() for filters/search prevents multiple background listeners
-    query.get().then((snapshot) => {
-        menuGrid.innerHTML = "";
-        snapshot.forEach((doc) => {
-            const item = doc.data();
-            const itemName = item.name.toLowerCase();
-            const isSoldOut = item.status === "Sold Out";
-
-            if (itemName.includes(searchTerm.toLowerCase())) {
-                menuGrid.innerHTML += `
-                    <div class="food-card" style="${isSoldOut ? 'opacity: 0.7; filter: grayscale(0.8);' : ''}">
-                        <img src="${item.imageURL || 'https://via.placeholder.com/300x200'}" class="food-img">
-                        <div style="padding: 15px;">
-                            <h3>${item.name} ${isSoldOut ? '<span style="color:red; font-size:12px;">(SOLD OUT)</span>' : ''}</h3>
-                            <p>₹${item.price} | ${item.prepTime} mins</p>
-                            <button class="add-btn" 
-                                ${isSoldOut ? 'disabled style="background:#888;"' : ''} 
-                                onclick="addToCart('${doc.id}', '${item.name}', ${item.price})">
-                                ${isSoldOut ? "Out of Stock" : "Add to Cart"}
-                            </button>
-                        </div>
-                    </div>`;
-            }
-        });
+        // Only show items that match the search term
+        if (itemName.includes(searchTerm.toLowerCase())) {
+            menuGrid.innerHTML += `
+                <div class="food-card" style="${isSoldOut ? 'opacity: 0.7; filter: grayscale(0.8);' : ''}">
+                    <img src="${item.imageURL || 'https://via.placeholder.com/300x200'}" class="food-img">
+                    <div style="padding: 15px;">
+                        <h3>${item.name} ${isSoldOut ? '<span style="color:red; font-size:12px;">(SOLD OUT)</span>' : ''}</h3>
+                        <p>₹${item.price} | ${item.prepTime} mins</p>
+                        <button class="add-btn" 
+                            ${isSoldOut ? 'disabled style="background:#888;"' : ''} 
+                            onclick="addToCart('${doc.id}', '${item.name}', ${item.price})">
+                            ${isSoldOut ? "Out of Stock" : "Add to Cart"}
+                        </button>
+                    </div>
+                </div>`;
+        }
     });
-}
-
+});
 // Search & Filter Listeners
 const searchInput = document.getElementById('menu-search');
 if (searchInput) {
@@ -378,25 +377,6 @@ window.updateStatus = (id, newStatus) => {
     db.collection("orders").doc(id).update({ status: newStatus });
 };
 
-// function loadAdminMenuList() {
-//     const adminList = document.getElementById('admin-menu-list');
-//     if (!adminList) return;
-//     db.collection("menuItems").onSnapshot(snap => {
-//         adminList.innerHTML = "<h3>Current Menu Items</h3>";
-//         snap.forEach(doc => {
-//             const item = doc.data();
-//             adminList.innerHTML += `
-//                 <div class="admin-item-row" style="display:flex; justify-content:space-between; padding:10px; border-bottom:1px solid #eee;">
-//                     <span>${item.name}</span>
-//                     <button onclick="toggleAvailability('${doc.id}', '${item.status || 'Available'}')">
-//                         ${item.status === "Sold Out" ? "Available" : "Sold Out"}
-//                     </button>
-//                 </div>`;
-//         });
-//     });
-// }
-
-
 // Updated Admin Menu List with CSS classes
 function loadAdminMenuList() {
     const adminList = document.getElementById('admin-menu-list');
@@ -457,10 +437,24 @@ function updateStatusUI(status) {
     }
 }
 
+
+// NEW: Real-time Queue Status Listener
+function startQueueListener() {
+    const queueElement = document.getElementById('queue-count');
+    if (!queueElement) return;
+
+    db.collection("orders")
+        .where("status", "in", ["Pending", "Preparing"])
+        .onSnapshot((snapshot) => {
+            queueElement.innerText = snapshot.size; 
+        });
+}
 // ==========================================
 // 7. INITIALIZATION
 // ==========================================
+// Update  Initialization section at the very bottom
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('menu-grid')) loadMenu();
     if (document.getElementById('admin-menu-list')) loadAdminMenuList();
+    startQueueListener(); // Add this line here
 });
